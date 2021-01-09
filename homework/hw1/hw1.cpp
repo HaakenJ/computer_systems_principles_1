@@ -1,5 +1,7 @@
 // Created by Kramer Johnson
 // 01/08/21
+// CSPC 5041 02
+// Seattle University Winter 2021
 // Version 1.0
 
 
@@ -40,6 +42,7 @@ int myLog(int base, int num) {
     while (power(base, result) < num) {
         result++;
     }
+
     return (power(base, result) > num ? --result : result);
 }
 
@@ -98,19 +101,19 @@ void testLog() {
     try {
         myLog(0, 2343);
         cout << "Failed at base 0" << endl;
-    } catch (invalid_argument) {
+    } catch (invalid_argument&) {
     }
 
     try {
         myLog(1, 2343);
         cout << "Failed at base 1" << endl;
-    } catch (invalid_argument) {
+    } catch (invalid_argument&) {
     }
 
     try {
         myLog(-4, 234);
         cout << "Failed at base -4" << endl;
-    } catch (invalid_argument) {
+    } catch (invalid_argument&) {
     }
 }
 

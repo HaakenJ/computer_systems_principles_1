@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "D:/Haake/Documents/seattle_u_courses/computer_systems_principles_1/homework/hw1/main.cpp" "D:/Haake/Documents/seattle_u_courses/computer_systems_principles_1/homework/hw1/cmake-build-debug/CMakeFiles/hw1.dir/main.cpp.obj"
+  "D:/Haake/Documents/seattle_u_courses/computer_systems_principles_1/homework/hw1/hw1.cpp" "D:/Haake/Documents/seattle_u_courses/computer_systems_principles_1/homework/hw1/cmake-build-debug/CMakeFiles/hw1.dir/hw1.cpp.obj"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
