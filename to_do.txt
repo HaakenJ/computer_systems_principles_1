@@ -1,5 +1,0 @@
-What to do before week 2 in Comp Sys:
-
-Read through C++ review
-Read through C programming on Linux
-Homework 1 - due Monday Jan 11th
