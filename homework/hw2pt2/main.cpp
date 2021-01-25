@@ -1,18 +1,28 @@
+// Kramer Johnson
+// CSPC 5041 02, Winter quarter, Seattle University
+// 1/24/21
+// Version 1.0
+
+
 #include <iostream>
-#include <bitset>
+#include <stdexcept>
+#include <cassert>
 
 using namespace std;
 
 /*
  * Function to convert a decimal number to binary
  * The binary representation of the number is returned
- * as a string to avoid implicit conversion to decimal
- * representations.
+ * as an integer
+ * @throws       invalid_argument if a negative integer is passed
  * @param number a positive integer to convert
- * @return       a string of the binary representation of number
+ * @return       an integer of the binary representation of number
  */
-string decimalToBinary(int number) {
-    if (number < 0) return 0;
+int decimalToBinary(int number) {
+    if (number < 0)
+        throw invalid_argument("Input must be a positive integer");
+    if (number == 0)
+        return 0;
     string result;
 
     while (number > 0) {
@@ -21,11 +31,20 @@ string decimalToBinary(int number) {
         number /= 2;
     }
 
-    return result;
+    return stoi(result);
 }
 
 int main() {
-    for (int i = 2; i <= 256; i *= 2)
-        cout << decimalToBinary(i) << endl;
+    assert(decimalToBinary(1)   == 1);
+    assert(decimalToBinary(2)   == 10);
+    assert(decimalToBinary(8)   == 1000);
+    assert(decimalToBinary(256) == 100000000);
+    assert(decimalToBinary(25)  == 11001);
+    assert(decimalToBinary(0)   == 0);
+    try {
+        decimalToBinary(-5);
+    } catch (invalid_argument &e) {
+        cout << "All tests have passed." << endl;
+    }
     return 0;
 }
