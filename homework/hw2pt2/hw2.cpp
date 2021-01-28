@@ -35,16 +35,17 @@ int decimalToBinary(int number) {
 }
 
 int main() {
-    assert(decimalToBinary(1)   == 1);
-    assert(decimalToBinary(2)   == 10);
-    assert(decimalToBinary(8)   == 1000);
-    assert(decimalToBinary(256) == 100000000);
-    assert(decimalToBinary(25)  == 11001);
-    assert(decimalToBinary(0)   == 0);
-    try {
-        decimalToBinary(-5);
-    } catch (invalid_argument &e) {
-        cout << "All tests have passed." << endl;
-    }
+//    assert(decimalToBinary(1)   == 1);
+//    assert(decimalToBinary(2)   == 10);
+//    assert(decimalToBinary(8)   == 1000);
+//    assert(decimalToBinary(256) == 100000000);
+//    assert(decimalToBinary(25)  == 11001);
+//    assert(decimalToBinary(0)   == 0);
+//    try {
+//        decimalToBinary(-5);
+//    } catch (invalid_argument &e) {
+//        cout << "All tests have passed." << endl;
+//    }
+    decimalToBinary(1055);
     return 0;
 }

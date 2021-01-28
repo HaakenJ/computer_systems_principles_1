@@ -3,4 +3,4 @@ project(hw2pt2)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(hw2pt2 main.cpp)
+add_executable(hw2pt2 hw2.cpp)
