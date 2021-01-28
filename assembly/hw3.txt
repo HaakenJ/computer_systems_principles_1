@@ -1,0 +1,43 @@
+# Kramer Johnson
+# HW3 CSPC 5041 02 Seattle University
+# 1/27/21
+# Version 1.0
+
+# This program prompts a user for input
+# and continues to do so as long as the user
+# does not enter a negative number.  Once they
+# do, the program outputs the highest number
+# that was inputted.
+
+# r1 - input from user
+# r2 - current maximum
+# r3 - temporary storage
+
+# initialize max to 0
+addi r2 r0 0
+
+# start loop and get input
+loop: in r1
+
+# if input is greater than 0 or equal to 0
+# go to testMax
+    bgz r1 &testMax
+    bez r1 &testMax    
+
+# else, input is negative
+# print out max
+    out r2
+    .halt
+
+# subtract max from input
+# if result is greater than 0 set the 
+# input value to the max register and
+# return to loop
+testMax: sub r3 r1 r2
+    bgz r3 &setMax
+    bez r0 &loop    
+
+# set the input value to the max register
+# return to the loop
+setMax: addi r2 r1 0
+    bez r0 &loop
