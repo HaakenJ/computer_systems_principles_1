@@ -69,6 +69,11 @@ void displayNamesScores(const string* names, const int* scores, const int size) 
     }
 }
 
+/**
+ * Determines if a string contains a valid integer
+ * @param s string in question
+ * @return  true if s is an integer, false otherwise
+ */
 bool isNum(string s) {
     for (char c: s) {
         if (!isdigit(c))
@@ -112,18 +117,6 @@ int main() {
 
         cout << endl;
     }
-
-//    names[0] = "King";
-//    names[1] = "Lewis";
-//    names[2] = "Goss";
-//    names[3] = "Green";
-//    names[4] = "Clinton";
-//
-//    scores[0] = 100;
-//    scores[1] = 90;
-//    scores[2] = 98;
-//    scores[3] = 95;
-//    scores[4] = 96;
 
     sortScores(names, scores, numTests);
 
