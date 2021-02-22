@@ -1,9 +1,24 @@
+/*
+ * Kramer Johnson
+ * CPSC 5041 02 Seattle University Winter 2021
+ * 02/20/21
+ * Version 1.0
+ */
+
 #include <iostream>
 #include <string>
 #include <iomanip>
 
 using namespace std;
 
+/**
+ * Sort an array of scores and matching names in ascending order
+ * @precon       the name of each matching score must be in the
+ *               same index as the score
+ * @param names  array of names
+ * @param scores array of scores
+ * @param size   size of the arrays
+ */
 void sortScores(string* names, int* scores, const int size) {
     int i, key, j;
     string nameKey;
@@ -23,6 +38,12 @@ void sortScores(string* names, int* scores, const int size) {
     }
 }
 
+/**
+ * Calculates the average of an array of scores
+ * @param scores array of score values
+ * @param size   the length of the array
+ * @return       a double of average score
+ */
 double calculateAvg(const int* scores, const int size) {
     double sum = 0;
     for (int i = 0; i < size; i++) {
@@ -31,6 +52,14 @@ double calculateAvg(const int* scores, const int size) {
     return sum / size;
 }
 
+/**
+ * Displays names with matching score values in a fixed width
+ * @precon       the name of each matching score must be in the
+ *               same index as the score
+ * @param names  array of names
+ * @param scores array of scores
+ * @param size   length of the arrays
+ */
 void displayNamesScores(const string* names, const int* scores, const int size) {
     int width = 20;
     cout << "Name" << setw(width - 1) << "Score" << endl;
@@ -38,6 +67,14 @@ void displayNamesScores(const string* names, const int* scores, const int size) 
         int pad = width - names[i].size();
         cout << left << names[i] << right << setw(pad) << scores[i] << endl;
     }
+}
+
+bool isNum(string s) {
+    for (char c: s) {
+        if (!isdigit(c))
+            return false;
+    }
+    return true;
 }
 
 int main() {
@@ -51,6 +88,7 @@ int main() {
 
     for (int i = 0; i < numTests; i++) {
         string name;
+        string input;
         int score;
 
         cout << "Enter student " << i + 1 << "'s name: ";
@@ -60,15 +98,16 @@ int main() {
 
 
         cout << "Enter that student’s test score: ";
-        cin >> score;
-        while (!isdigit(score) || score < 0 || score > 100) {
-            score = 0;
+        cin >> input;
+        while (!isNum(input) || stoi(input) < 0 || stoi(input) > 100) {
+            cin.clear();
             cout << "Please enter a valid integer score between 0 and 100." << endl;
             cout << "Enter that student’s test score: ";
-            cin >> score;
+            cin >> input;
         }
-
         cin.clear();
+
+        score = stoi(input);
         scores[i] = score;
 
         cout << endl;
@@ -98,6 +137,9 @@ int main() {
     double avg = calculateAvg(scores, numTests);
 
     cout << "Average score:    " << setprecision(2) << fixed << avg << endl;
+
+    delete [] scores;
+    delete [] names;
 
     return 0;
 }
